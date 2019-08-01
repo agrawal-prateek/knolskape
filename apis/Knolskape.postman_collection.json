@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "e9a8cb53-ab2f-40bf-9fe3-26e7ea6a9fa0",
+		"name": "Knolskape",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Assesment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assignee_id\":2,\n\t\"assessment_name\": \"a\",\n\t\"assessment_detail\":\"This is a sample assessment\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/assessment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Assessment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assessment_id\":8,\n\t\"assignee_id\":3,\n\t\"assessment_name\": \"New Modified\",\n\t\"assessment_detail\":\"This is a sample assessment modified\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/assessment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Assessment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/assessment/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assessment",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
