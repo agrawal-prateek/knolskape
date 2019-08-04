@@ -13,6 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/assessment', require('./routes/assessment'));
-app.use('/student', require('./routes/student'));
+app.use('/user', require('./routes/user'));
 
 module.exports = app;

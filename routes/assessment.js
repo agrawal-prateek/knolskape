@@ -21,13 +21,13 @@ router.post("/", (req, res) => {
       `insert into assessment(assignee_id, assigner_id, assessment_name) values
             (${assignee_id}, ${assigner_id}, '${assessment_name}')`,
       (error, results, fields) => {
-        if (error) return response(res, 400, false, "Not created");
+        if (error) return response(res, 400, false);
         else return response(res, 201, true);
       }
     );
   } else {
     // Invalid Token
-    return response(res, 401, false, "Invalid Token");
+    return response(res, 401, false);
   }
 });
 
@@ -47,24 +47,31 @@ router.patch("/:id", (req, res) => {
             assessment_name='${assessment_name}'
             where id=${assessment_id}`;
       connection.query(query, (error, results, fields) => {
-        if (error) return response(res, 304, false, "Not Modified");
+        if (error) return response(res, 304, false);
         else return response(res, 204, true);
       });
     } else if (tokenData.role === "student") {
-      connection.query(`select assessment_name from assessment where id=${assessment_id}`, (error, results, fields) => {
-        const assessment_detail = req.body.assessment_detail;
-        getScore(assessment_detail, results[0].assessment_name.split(" ")).then(score => {
-          query = `update assessment set assessment_detail='${assessment_detail}', score='${score}' where id=${assessment_id}`;
-          connection.query(query, (error, results, fields) => {
-            if (error) return response(res, 304, false, "Not Modified");
-            else return response(res, 204, true);
+      connection.query(
+        `select assessment_name from assessment where id=${assessment_id}`,
+        (error, results, fields) => {
+          const assessment_detail = req.body.assessment_detail;
+          getScore(
+            assessment_detail,
+            results[0].assessment_name.split(" ")
+          ).then(score => {
+            query = `update assessment set assessment_detail='${assessment_detail}', 
+            score='${score}' where id=${assessment_id}`;
+            connection.query(query, (error, results, fields) => {
+              if (error) return response(res, 304, false);
+              else return response(res, 204, true);
+            });
           });
-        });
-      })
+        }
+      );
     }
   } else {
     // Invalid Token
-    return response(res, 401, false, "Invalid Token");
+    return response(res, 401, false);
   }
 });
 
@@ -77,13 +84,13 @@ router.delete("/:id", (req, res) => {
     connection.query(
       `delete from assessment where id=${id}`,
       (error, results, fields) => {
-        if (error) return response(res, 304, false, "Not deleted");
+        if (error) return response(res, 304, false);
         else return response(res, 204, true);
       }
     );
   } else {
     // Invalid Token
-    return response(res, 401, false, "Invalid Token");
+    return response(res, 401, false);
   }
 });
 
