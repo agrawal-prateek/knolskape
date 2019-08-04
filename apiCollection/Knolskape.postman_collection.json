@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
 							"type": "string"
 						}
 					]
@@ -29,7 +29,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"assignee_id\":2,\n\t\"assessment_name\": \"a\",\n\t\"assessment_detail\":\"This is a sample assessment\"\n}"
+					"raw": "{\n\t\"assignee_id\":7,\n\t\"assessment_name\": \"3\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/assessment",
@@ -53,7 +53,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
 							"type": "string"
 						}
 					]
@@ -69,17 +69,18 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"assessment_id\":8,\n\t\"assignee_id\":3,\n\t\"assessment_name\": \"New Modified\",\n\t\"assessment_detail\":\"This is a sample assessment modified\"\n}"
+					"raw": "{\n\t\"assignee_id\":1,\n\t\"assessment_name\": \"New Modified\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/assessment",
+					"raw": "http://localhost:3000/assessment/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"assessment"
+						"assessment",
+						"5"
 					]
 				}
 			},
@@ -93,7 +94,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsiLCJyb2xlIjoidGVhY2hlciIsImV4cCI6OTk2NDY5MzA2ODU4N30.O3d2aZA80kumk7JtaNE7-urz9x6e5Z0WkO5_Tm9CwqE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
 							"type": "string"
 						}
 					]
@@ -101,7 +102,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/assessment/8",
+					"raw": "http://localhost:3000/assessment/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -109,7 +110,199 @@
 					"port": "3000",
 					"path": [
 						"assessment",
-						"8"
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"student\",\n\t\"name\":\"prateek 3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"student\",\n\t\"name\":\"prateek modified new\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Assessment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByYXRlZWsgYXMgc3R1ZGVudCIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.I9Yk8KmrebX2csyzdrOr6LlgV33FtrW_zh67vr_LzuQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assessment_detail\":\"Gdjed jn j d\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/assessment/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"assessment",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "See LeaderBoard",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByYXRlZWsgYXMgdGVhY2hlciIsInJvbGUiOiJ0ZWFjaGVyIiwiZXhwIjo5OTY0NjkzMDY4NTg3fQ.k1yOSnXZUwtBBh9Cdaq25n2yhHd8wpTPJxbagmvUh9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/leaderboard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"leaderboard"
 					]
 				}
 			},
